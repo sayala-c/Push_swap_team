@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/17 21:14:04 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/03/17 21:43:09 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include "./libft/libft.h"
 
 #endif
