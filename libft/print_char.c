@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 19:45:29 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/19 22:20:47 by oduran-m         ###   ########.fr       */
+/*   Created: 2026/02/06 22:32:19 by oduran-m          #+#    #+#             */
+/*   Updated: 2026/03/19 22:27:43 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	print_char(char word)
 {
-	ft_printf("argc: %d\nargv: %s\n", argc, argv[1]);
-	return (0);
+	if (!write (1, &word, 1))
+		return (-1);
+	return (1);
 }
+/*int	print_char(char word)
+{
+	ft_putchar_fd(word, 1);
+	return (1);
+}*/

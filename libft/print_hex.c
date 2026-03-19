@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 19:45:29 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/19 22:20:47 by oduran-m         ###   ########.fr       */
+/*   Created: 2026/02/07 21:34:28 by oduran-m          #+#    #+#             */
+/*   Updated: 2026/03/19 22:28:01 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	print_hex(unsigned int value, int asc)
 {
-	ft_printf("argc: %d\nargv: %s\n", argc, argv[1]);
-	return (0);
+	char			buffer[20];
+	int				i;
+	int				len;
+	char			digit;
+	unsigned int	d;
+
+	len = 0;
+	i = 0;
+	if (value == 0)
+		return (print_char('0'));
+	while (value > 0)
+	{
+		d = value % 16;
+		if (d < 10)
+			digit = d + '0';
+		else
+			digit = d + asc;
+		buffer[i++] = digit;
+		value /= 16;
+	}
+	while (i--)
+		len += print_char(buffer[i]);
+	return (len);
 }

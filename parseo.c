@@ -1,20 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parseo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 19:45:29 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/19 22:20:47 by oduran-m         ###   ########.fr       */
+/*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
+/*   Updated: 2026/03/19 22:20:06 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
-{
-	ft_printf("argc: %d\nargv: %s\n", argc, argv[1]);
-	return (0);
-}

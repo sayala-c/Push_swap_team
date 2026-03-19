@@ -6,7 +6,7 @@
 #    By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/18 22:47:21 by oduran-m          #+#    #+#              #
-#    Updated: 2026/02/03 18:43:08 by oduran-m         ###   ########.fr        #
+#    Updated: 2026/03/19 22:18:30 by oduran-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 		ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 		ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstadd_front.c \
 		ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
-		ft_lstiter.c ft_lstmap.c ft_putendl_fd.c		
+		ft_lstiter.c ft_lstmap.c ft_putendl_fd.c ft_printf.c print_char.c print_hex.c \
+		print_int.c print_pointer.c print_string.c print_unsigned.c
 OBJS = $(SRC:.c=.o)
 
 all: $(NAME)
