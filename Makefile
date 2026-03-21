@@ -6,7 +6,7 @@
 #    By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/17 19:21:00 by oduran-m          #+#    #+#              #
-#    Updated: 2026/03/17 22:28:59 by sayala-c         ###   ########.fr        #
+#    Updated: 2026/03/21 18:38:05 by oduran-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = ./libft
 LIBFT =	$(LIBFT_DIR)/libft.a
 
-SRC = push_swap.c
+SRC = push_swap.c parseo.c
 OBJS = $(SRC:.c=.o)
 
 INCLUDES = -I. -I$(LIBFT_DIR) 
