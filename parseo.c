@@ -6,14 +6,21 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/21 19:05:32 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/03/22 18:12:50 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	flags(const char *argv)
+void	init_flag(t_flag *flags)
 {
+	flags->method = METHOD_NONE;
+	flags->bench = 0;
+	flags->error = 0;
+}
+int	flags(t_flag *opts, char *argv)
+{
+	
 	if (!ft_strncmp(argv, "--simple", 8))
 			return (1);
 		else if (!ft_strncmp(argv, "--medium", 8))
@@ -32,10 +39,13 @@ int	flags(const char *argv)
 int	parseo(char **argv)
 {
 	int	flag;
-
+	int	i;
+	
 	flag = 0;
-	if (!ft_strncmp(argv[1], "--", 2))
-			return (flags(argv[1]));
+	i = 0;
+	while (argv[++i])
+		if (!ft_strncmp(argv[i], "--", 2))
+			flag += flags(argv[i]);
 	else
 		return (0);
 }
