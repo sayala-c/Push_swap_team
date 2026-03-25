@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/25 16:29:26 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:03:16 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	set_method(t_flag *opts, t_method m)
 {
-	if (opts->method != METHOD_NONE && opts->method != m)
+	if (opts->method != METHOD_NONE)
 	{
 		opts->error = 1;
 		return (1);
@@ -35,6 +35,8 @@ int	parse_flag(t_flag *opts, char *argv)
 		return (set_method(opts, METHOD_ADAPTIVE));
 	else if (!ft_strncmp(argv, "--bench", 8) && argv[7] == '\0')
 	{
+		if (opts->bench == 1)
+			return (opts->error = 1, 1);
 		opts->bench = 1;
 		return (0);
 	}
