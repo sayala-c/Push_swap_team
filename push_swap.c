@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:45:29 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/25 16:32:46 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/03/26 17:56:16 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,30 @@ void	init_flag(t_flag *flags)
 	flags->method = METHOD_NONE;
 	flags->bench = 0;
 	flags->error = 0;
+}
+
+t_stack	*new_node(int value)
+{
+	t_stack	*node;
+
+	node = malloc(sizeof(t_stack));
+	if(!node)
+		return (NULL);
+	node->value = value;
+	node->index = -1;
+	node->next = NULL;
+	return (node);
+}
+
+void	push_front(t_stack **stack, int value)
+{
+	t_stack *new;
+
+	new = new_node(value);
+	if (!new)
+		return (NULL);
+	new->next = *stack;
+	*stack = new;
 }
 
 static const char	*method_name(t_method m)

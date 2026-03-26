@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/25 19:29:56 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/26 16:04:38 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ typedef struct s_flag
 
 typedef struct s_stack
 {
-	int	value;
-	struct s_stack  *next;
-	/*int	index;//posicion final que deberia cupar en el stack (0,1,2, se da valor pequeno para qe sea mas facil de trabajar)
-	int	pos;//posicion que esta actualmente en el stack (0,1,2)
+	int			value;
+	struct		s_stack  *next;
+	int			index;
+/*	int	pos;//posicion que esta actualmente en el stack (0,1,2)
 	int	cost_a;//cuantos movimientos cuesta subir el nodo al tope de a 
 	int	cost_b;//lo mismo pero con b, el qe tenga la suma mas baja es el que movemos
 	int	target_pos//Si vas a mover un número del Stack A al Stack B, ¿en qué hueco exacto debe encajar para que B siga ordenado? y viceversa */
