@@ -6,15 +6,15 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:05:09 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/25 17:57:56 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/26 20:35:19 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-float	disorder_index(t_stack *a)
+double	disorder_index(t_stack *a)
 {
 	t_stack	*i;
 	t_stack	*j;
-	float	pairs;
-	float	mistakes;
+	double	pairs;
+	double	mistakes;
 	
 	pairs = 0;
 	mistakes = 0;

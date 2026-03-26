@@ -6,26 +6,65 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 21:40:14 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/26 17:26:40 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/26 21:34:21 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	rotate_a(t_stack **a)
+int	rotate(t_stack **stack)//no hace falta hacer uno para a y otro para b xq son identicos y se les puede pasar en el main el stack que corresponde
 {
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if (*a == NULL || (*a)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
         return (0);
-	tmp = *a;
-	*a = (*a)->next;
-	last = *a;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = NULL;
+	last = *stack;
 	while (last->next != NULL)
 		last = last->next;
+	last->next = tmp;
 	return (1);
 }
 
-int	rotate_b(t_stack **b)
+int	rotate_rr(t_stack **a, t_stack **b)
 {
+	int	rotate_a;
+	int	rotate_b;
 
+	rotate_a = rotate(a);
+	rotate_b = rotate(b);
+	if (rotate_a == 0 && rotate_b == 0)
+		return (0);
+	return (1); 
+}
+
+int	reverse_rotate(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*last;
+	t_stack *penultimate;
+	
+	if (*stack == NULL || (*stack)->next == NULL)
+		return (0);
+	penultimate = *stack;
+	while (penultimate->next->next != NULL)
+		penultimate = penultimate->next;
+	last = penultimate->next;
+	penultimate->next = NULL;
+	last->next = *stack;
+	*stack = last;
+	return (1);
+}
+
+int	rotate_rrr(t_stack **a, t_stack **b)
+{
+	int	rrr_a;
+	int	rrr_b;
+
+	rrr_a = reverse_rotate(a);
+	rrr_b = reverse_rotate(b);
+	if (rrr_a == 0 && rrr_b == 0)
+		return (0);
+	return (1);
 }
