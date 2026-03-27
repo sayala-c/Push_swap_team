@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 19:34:17 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/26 18:40:31 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/27 18:25:57 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,31 @@ int	swap_ss(t_stack **a, t_stack **b)
 	if (call_a == 0 && call_b == 0)
 		return(0);
 	return(1);
+}
+
+void print_sa(t_stack **a)
+{
+	int sa;
+
+	sa = swap(a);
+	if (sa == 1)
+		write(1, "sa\n", 3);
+}
+
+void print_sb(t_stack **b)
+{
+	int	sb;
+	
+	sb = swap(b);
+	if (sb == 1)
+		write(1, "sb\n", 3);
+}
+
+void print_ss(t_stack **a, t_stack **b)
+{
+	int	ss;
+	
+	ss = swap_ss(a, b);
+	if (ss == 1)
+		write(1, "ss\n", 3);
 }

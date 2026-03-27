@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/26 16:04:38 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/03/27 15:47:53 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,20 @@ typedef struct s_stack
 } t_stack
 
 int	parseo(int argc, char **argv, t_flag *opts);
-
+int	parse_flag(t_flag *opts, char *argv);
+static int	set_method(t_flag *opts, t_method m);
+double	disorder_index(t_stack *a);
+void	print_flags(const t_flag *opts);
+static const char	*method_name(t_method m);
+void	push_front(t_stack **stack, int value);
+t_stack	*new_node(int value);
+void	init_flag(t_flag *flags);
+int	push_a(t_stack **b, t_stack **a);
+int	push_b(t_stack **a, t_stack **b);
+int	rotate(t_stack **stack);
+int	rotate_rr(t_stack **a, t_stack **b);
+int	reverse_rotate(t_stack **stack);
+int	rotate_rrr(t_stack **a, t_stack **b);
+int	swap(t_stack **stack);
+int	swap_ss(t_stack **a, t_stack **b);
 #endif
