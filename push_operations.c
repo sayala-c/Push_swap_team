@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 20:47:46 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/27 17:50:28 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/30 21:48:45 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,4 @@ int push_b(t_stack **a, t_stack **b)
     move_node->next = first_b;
     *b = move_node;
     return (1);
-}
-
-void print_pa(t_stack **b, t_stack **a)
-{
-	int	pa;
-
-	pa = push_a(b, a);
-	if (pa == 1)
-		write(1, "pa\n", 3);
-}
-
-void print_pb(t_stack **a, t_stack **b)
-{
-	int	pb;
-	
-	pa = push_b(a, b);
-	if (pb == 1)
-		write(1, "pb\n", 3);
 }

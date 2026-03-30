@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/27 15:47:53 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/30 22:20:34 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef enum e_method
 	METHOD_MEDIUM,
 	METHOD_COMPLEX,
 	METHOD_ADAPTIVE
-} t_method;
+} t_method;i
 
 typedef struct s_flag
 {
@@ -42,6 +42,28 @@ typedef struct s_stack
 	int	cost_b;//lo mismo pero con b, el qe tenga la suma mas baja es el que movemos
 	int	target_pos//Si vas a mover un número del Stack A al Stack B, ¿en qué hueco exacto debe encajar para que B siga ordenado? y viceversa */
 } t_stack
+
+typedef enum e_operations
+{
+	SA, SB, SS, PA, RA, RB, RR, RRA, RRB, RRR
+} t_operations //IDs para los movimientos,on tipo de datos, no valiables no hayq que inicializarlo. el compilador le asigna un num permanente a cada ID (esa es su "inicializacion"), pero usaremos SA, etc en vez el nuero para mejor lectura para nosotros. Este ID se le pasa a la funcion execute para que llame al movimiento que corresponda y o lo sume para bench o lo imprima en stout
+
+typedef struct s_datacount
+{
+	int bench_mode;//0 si no lo usamos y 1 si usamos --bench
+	int	sa;
+	int sb;
+	int ss;
+	int pa;
+	int pb;
+	int ra;
+	int rb;
+	int rr;
+	int rra;
+	int rrb;
+	int rrr;
+	int	total_operations;
+} t_datacount // son variables, se inicializa poniendo todo a 0 en el inits.c
 
 int	parseo(int argc, char **argv, t_flag *opts);
 int	parse_flag(t_flag *opts, char *argv);

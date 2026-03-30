@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 14:02:55 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/27 15:47:37 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/30 21:39:21 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ t_stack *new_node(int value)
     node->index = -1;
     node->next = NULL;
     return (node);
+}
+
+void init_datacount(t_datacount *data)
+{
+	ft_memset(data, 0, sizeof(t_datacount));
 }
