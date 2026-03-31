@@ -6,9 +6,12 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:05:09 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/31 18:16:12 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/31 18:43:29 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+
 double	disorder_index(t_stack *a)
 {
 	t_stack	*i;
@@ -21,7 +24,6 @@ double	disorder_index(t_stack *a)
 	i = a;
 	if (a == NULL || a->next == NULL)
 		return (0);
-	j = 0;
 	while (i != NULL && i->next != NULL)
 	{
 		j = i->next;
@@ -34,10 +36,10 @@ double	disorder_index(t_stack *a)
 		}
 		i = i->next;
 	}
-	return (mistakes/pairs)
+	return (mistakes/pairs);
 }
 
-void  execute_operations(t_operations operation, t_stack *a, t_stack *b, t_datacount *data)
+void  execute_operations(t_operations operation, t_stack **a, t_stack **b, t_datacount *data)
 {
 	if (operation == SA && swap(a) == 1)
 		show_operations(operation, data);

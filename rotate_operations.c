@@ -6,9 +6,11 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 21:40:14 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/26 21:34:21 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/31 18:42:14 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	rotate(t_stack **stack)//no hace falta hacer uno para a y otro para b xq son identicos y se les puede pasar en el main el stack que corresponde
 {
@@ -41,7 +43,6 @@ int	rotate_rr(t_stack **a, t_stack **b)
 
 int	reverse_rotate(t_stack **stack)
 {
-	t_stack	*tmp;
 	t_stack	*last;
 	t_stack *penultimate;
 	

@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/31 18:10:30 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/03/31 18:34:02 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_stack
 
 typedef enum e_operations
 {
-	SA, SB, SS, PA, RA, RB, RR, RRA, RRB, RRR
+	SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
 } t_operations; //IDs para los movimientos,on tipo de datos, no valiables no hayq que inicializarlo. el compilador le asigna un num permanente a cada ID (esa es su "inicializacion"), pero usaremos SA, etc en vez el nuero para mejor lectura para nosotros. Este ID se le pasa a la funcion execute para que llame al movimiento que corresponda y o lo sume para bench o lo imprima en stout
 
 typedef struct s_datacount
@@ -74,6 +74,9 @@ double	disorder_index(t_stack *a);
 void	push_front(t_stack **stack, int value);
 t_stack	*new_node(int value);
 void	init_flag(t_flag *flags);
+void	execute_operations(t_operations operation, t_stack **a, t_stack **b, t_datacount *data);
+void	show_operations(t_operations operation, t_datacount *data);
+void	update_data_count(t_operations operation, t_datacount *data);
 int		push_a(t_stack **b, t_stack **a);
 int		push_b(t_stack **a, t_stack **b);
 int		rotate(t_stack **stack);
