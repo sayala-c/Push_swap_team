@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/30 22:20:34 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/31 18:10:30 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include "./libft/libft.h"
+# include <stdlib.h>
 
 typedef enum e_method
 {
@@ -23,7 +24,7 @@ typedef enum e_method
 	METHOD_MEDIUM,
 	METHOD_COMPLEX,
 	METHOD_ADAPTIVE
-} t_method;i
+} t_method;
 
 typedef struct s_flag
 {
@@ -41,12 +42,12 @@ typedef struct s_stack
 	int	cost_a;//cuantos movimientos cuesta subir el nodo al tope de a 
 	int	cost_b;//lo mismo pero con b, el qe tenga la suma mas baja es el que movemos
 	int	target_pos//Si vas a mover un número del Stack A al Stack B, ¿en qué hueco exacto debe encajar para que B siga ordenado? y viceversa */
-} t_stack
+} t_stack;
 
 typedef enum e_operations
 {
 	SA, SB, SS, PA, RA, RB, RR, RRA, RRB, RRR
-} t_operations //IDs para los movimientos,on tipo de datos, no valiables no hayq que inicializarlo. el compilador le asigna un num permanente a cada ID (esa es su "inicializacion"), pero usaremos SA, etc en vez el nuero para mejor lectura para nosotros. Este ID se le pasa a la funcion execute para que llame al movimiento que corresponda y o lo sume para bench o lo imprima en stout
+} t_operations; //IDs para los movimientos,on tipo de datos, no valiables no hayq que inicializarlo. el compilador le asigna un num permanente a cada ID (esa es su "inicializacion"), pero usaremos SA, etc en vez el nuero para mejor lectura para nosotros. Este ID se le pasa a la funcion execute para que llame al movimiento que corresponda y o lo sume para bench o lo imprima en stout
 
 typedef struct s_datacount
 {
@@ -63,23 +64,22 @@ typedef struct s_datacount
 	int rrb;
 	int rrr;
 	int	total_operations;
-} t_datacount // son variables, se inicializa poniendo todo a 0 en el inits.c
+} t_datacount; // son variables, se inicializa poniendo todo a 0 en el inits.c
 
-int	parseo(int argc, char **argv, t_flag *opts);
-int	parse_flag(t_flag *opts, char *argv);
-static int	set_method(t_flag *opts, t_method m);
+int		parseo(int argc, char **argv, t_flag *opts, t_stack **stack);
+int		parse_flag(t_flag *opts, char *argv);
 double	disorder_index(t_stack *a);
-void	print_flags(const t_flag *opts);
-static const char	*method_name(t_method m);
+//void	print_flags(const t_flag *opts);
+//static	const char	*method_name(t_method m);
 void	push_front(t_stack **stack, int value);
 t_stack	*new_node(int value);
 void	init_flag(t_flag *flags);
-int	push_a(t_stack **b, t_stack **a);
-int	push_b(t_stack **a, t_stack **b);
-int	rotate(t_stack **stack);
-int	rotate_rr(t_stack **a, t_stack **b);
-int	reverse_rotate(t_stack **stack);
-int	rotate_rrr(t_stack **a, t_stack **b);
-int	swap(t_stack **stack);
-int	swap_ss(t_stack **a, t_stack **b);
+int		push_a(t_stack **b, t_stack **a);
+int		push_b(t_stack **a, t_stack **b);
+int		rotate(t_stack **stack);
+int		rotate_rr(t_stack **a, t_stack **b);
+int		reverse_rotate(t_stack **stack);
+int		rotate_rrr(t_stack **a, t_stack **b);
+int		swap(t_stack **stack);
+int		swap_ss(t_stack **a, t_stack **b);
 #endif

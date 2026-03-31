@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/25 17:03:16 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/03/31 18:11:25 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,47 @@ int	parse_flag(t_flag *opts, char *argv)
 	return (1);
 }
 
-int	parseo(int argc, char **argv, t_flag *opts)
+int	is_valid_int(char *str)
 {
 	int	i;
+
+	if (!str || !str[0])
+		return (1);
+	i = 0;
+	if (str[i] == '+' && str[i] == '-')
+		i++;
+	if(!str[i])
+		return (1);
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (0);
+}
+
+int	is_valid(char *arg, t_stack **stack)
+{
+	char	**split;
+	int		i;
+	//long	num;
+
+	stack = NULL;
+	split = ft_split(arg, ' ');
+	i = 0;
+	while (split[i])
+	{
+		if (is_valid_int(split[i]))
+			ft_printf("entra\n");
+		i++;
+	}
+	return (0);	
+}
+
+int	parseo(int argc, char **argv, t_flag *opts, t_stack **stack)
+{
+	int		i;
 	
 	i = 0;
 	while (++i < argc)
@@ -58,6 +96,8 @@ int	parseo(int argc, char **argv, t_flag *opts)
 			if (opts->error)
 				return (1);
 		}
+		if(!is_valid(argv[i], stack))
+			return(1);
 	}
 	if (opts->method == METHOD_NONE)
 		opts->method = METHOD_ADAPTIVE;
