@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:05:09 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/30 23:19:35 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/03/31 18:16:12 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 double	disorder_index(t_stack *a)
@@ -17,10 +17,11 @@ double	disorder_index(t_stack *a)
 	double	mistakes;
 	
 	pairs = 0;
-	mistakes = 0;i
+	mistakes = 0;
 	i = a;
 	if (a == NULL || a->next == NULL)
 		return (0);
+	j = 0;
 	while (i != NULL && i->next != NULL)
 	{
 		j = i->next;
