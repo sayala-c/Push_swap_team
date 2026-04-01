@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:05:09 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/31 18:43:29 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/01 16:33:00 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void show_operations(t_operations operation, t_datacount *data)
 	static char *names[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
 
 	if (data->bench_mode == 1)
-		update_data_count(operation ,data);		
+		update_data_count(operation, data);		
 	else
 	{
 		ft_putstr_fd(names[operation], 1);
