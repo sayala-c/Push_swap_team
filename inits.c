@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 14:02:55 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/30 21:39:21 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/02 17:50:51 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,26 @@ t_stack *new_node(int value)
     node->index = -1;
     node->next = NULL;
     return (node);
+}
+
+int	push_back(t_stack **stack, int value)
+{
+	t_stack *node;
+	t_stack *tmp;
+
+	node = new_node(value);
+	if (!node)
+		return (0);
+	if (*stack == NULL)
+	{
+		*stack = node;
+		return (1);
+	}
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp ->next;
+	tmp->next = node;
+	return (1);
 }
 
 void init_datacount(t_datacount *data)

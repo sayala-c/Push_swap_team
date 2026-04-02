@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/03/31 18:34:02 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/02 17:50:44 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,5 @@ int		reverse_rotate(t_stack **stack);
 int		rotate_rrr(t_stack **a, t_stack **b);
 int		swap(t_stack **stack);
 int		swap_ss(t_stack **a, t_stack **b);
+int		push_back(t_stack **stack, int value);
 #endif

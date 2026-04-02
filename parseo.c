@@ -6,11 +6,12 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/01 18:01:44 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/02 17:57:26 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 static int	set_method(t_flag *opts, t_method m)
 {
@@ -51,7 +52,7 @@ int	is_valid_int(char *str)
 	if (!str || !str[0])
 		return (1);
 	i = 0;
-	if (str[i] == '+' && str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 		i++;
 	if(!str[i])
 		return (1);
@@ -64,29 +65,51 @@ int	is_valid_int(char *str)
 	return (0);
 }
 
+void	free_split(char **split)
+{
+	int	i;
+
+	if (!split)
+		return ;
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
 int	is_valid(char *arg, t_stack **stack)
 {
 	char	**split;
 	int		i;
-	//long	num;
+	long	num;
 
-	stack = NULL;
 	if (ft_strrchr(arg, ' ') != 0)
-	{
 		split = ft_split(arg, ' ');
-		i = 0;
-		while(split[i])
-		{
-			if(is_valid_int(split[i]))
-				return (free(split), 0);
-			ft_printf("split parset: %s\n", split[i]);
-			i++;	
-		}
-		return (1);
+	else
+	{
+		split = malloc(sizeof(char *) * 2);
+		if (!split)
+			return (0);
+		split[0] = ft_strdup(arg);
+		split[1] = NULL;
 	}
-	ft_printf("arg: %s\n", arg);
-	
-	return (0);	
+	i = 0;
+	while (split[i])
+	{
+		if (is_valid_int(split[i]))
+			return (free_split(split), 0);
+		num = ft_atol(split[i]);
+		if (num > INT_MAX || num < INT_MIN)
+			return (free_split(split), 0);
+		if (!push_back(stack, (int)num))
+			return (free_split(split), 0);
+		ft_printf("split long: %d\n", num);
+		i++;	
+	}
+	return (1);	
 }
 
 int	parseo(int argc, char **argv, t_flag *opts, t_stack **stack)
