@@ -6,23 +6,12 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/02 17:57:26 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/03 18:08:55 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
-
-static int	set_method(t_flag *opts, t_method m)
-{
-	if (opts->method != METHOD_NONE)
-	{
-		opts->error = 1;
-		return (1);
-	}
-	opts->method = m;
-	return (0);
-}
 
 int	parse_flag(t_flag *opts, char *argv)
 {
@@ -45,26 +34,6 @@ int	parse_flag(t_flag *opts, char *argv)
 	return (1);
 }
 
-int	is_valid_int(char *str)
-{
-	int	i;
-
-	if (!str || !str[0])
-		return (1);
-	i = 0;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	if(!str[i])
-		return (1);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 void	free_split(char **split)
 {
 	int	i;
@@ -78,6 +47,17 @@ void	free_split(char **split)
 		i++;
 	}
 	free(split);
+}
+
+int	is_duplicate(t_stack *stack, int value)
+{
+	while (stack != NULL)
+	{
+		if (stack->value == value)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
 }
 
 int	is_valid(char *arg, t_stack **stack)
@@ -101,21 +81,21 @@ int	is_valid(char *arg, t_stack **stack)
 	{
 		if (is_valid_int(split[i]))
 			return (free_split(split), 0);
-		num = ft_atol(split[i]);
+		num = ft_atol(split[i++]);
 		if (num > INT_MAX || num < INT_MIN)
+			return (free_split(split), 0);
+		if (is_duplicate(*stack, (int)num))
 			return (free_split(split), 0);
 		if (!push_back(stack, (int)num))
 			return (free_split(split), 0);
-		ft_printf("split long: %d\n", num);
-		i++;	
 	}
-	return (1);	
+	return (free_split(split), 1);
 }
 
 int	parseo(int argc, char **argv, t_flag *opts, t_stack **stack)
 {
 	int		i;
-	
+
 	i = 0;
 	while (++i < argc)
 	{
@@ -126,7 +106,7 @@ int	parseo(int argc, char **argv, t_flag *opts, t_stack **stack)
 			if (opts->error)
 				return (1);
 		}
-		if(!is_valid(argv[i], stack))
+		if (!is_valid(argv[i], stack))
 			ft_printf("error\n");
 	}
 	if (opts->method == METHOD_NONE)

@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/02 17:50:44 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/03 18:09:41 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ typedef struct s_datacount
 	int	total_operations;
 } t_datacount; // son variables, se inicializa poniendo todo a 0 en el inits.c
 
+int		set_method(t_flag *opts, t_method m);
+int		is_valid_int(char *str);
 int		parseo(int argc, char **argv, t_flag *opts, t_stack **stack);
 int		parse_flag(t_flag *opts, char *argv);
 double	disorder_index(t_stack *a);
