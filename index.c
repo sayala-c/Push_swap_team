@@ -6,7 +6,11 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:05:09 by sayala-c          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2026/04/05 18:01:09 by oduran-m         ###   ########.fr       */
+=======
+/*   Updated: 2026/04/05 18:14:51 by sayala-c         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +72,13 @@ void	execute_operations(t_operations operation, t_stack **a,
 
 void	show_operations(t_operations operation, t_datacount *data)
 {
-	static char	*names[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
+	/*static char *names[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};*/
 
 	if (data->bench_mode == 1)
-		update_data_count (operation, data);
-	else
-	{
-		ft_putstr_fd(names[operation], 1);
-		write(1, "\n", 1);
-	}
+		update_data_count(operation, data);		
+	ft_putstr_fd(names[operation], 1);//corregir, *names[] no esta permitido
+	write(1, "\n", 1);
+
 }
 
 void	update_data_count(t_operations operation, t_datacount *data)
