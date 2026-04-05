@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/03 18:08:55 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/05 16:34:59 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ int	parseo(int argc, char **argv, t_flag *opts, t_stack **stack)
 			if (opts->error)
 				return (1);
 		}
-		if (!is_valid(argv[i], stack))
-			ft_printf("error\n");
+		else if (is_valid(argv[i], stack) == 0)
+			return (1);
 	}
 	if (opts->method == METHOD_NONE)
 		opts->method = METHOD_ADAPTIVE;
