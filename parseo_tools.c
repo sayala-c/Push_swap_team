@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 17:57:01 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/03 18:08:41 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/05 17:53:30 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_valid_int(char *str)
 {
 	int	i;
 
-	if(!str || !str[0])
+	if (!str || !str[0])
 		return (1);
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
@@ -39,6 +39,17 @@ int	is_valid_int(char *str)
 		if (!ft_isdigit(str[i]))
 			return (1);
 		i++;
+	}
+	return (0);
+}
+
+int	is_duplicate(t_stack *stack, int value)
+{
+	while (stack != NULL)
+	{
+		if (stack->value == value)
+			return (1);
+		stack = stack->next;
 	}
 	return (0);
 }

@@ -6,19 +6,20 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 21:40:14 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/03/31 18:42:14 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/05 18:03:21 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rotate(t_stack **stack)//no hace falta hacer uno para a y otro para b xq son identicos y se les puede pasar en el main el stack que corresponde
+int	rotate(t_stack **stack)/*no hace falta hacer uno para a y otro para b
+ xq son identicos y se les puede pasar en el main el stack que corresponde*/
 {
 	t_stack	*tmp;
 	t_stack	*last;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-        return (0);
+		return (0);
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tmp->next = NULL;
@@ -38,14 +39,14 @@ int	rotate_rr(t_stack **a, t_stack **b)
 	rotate_b = rotate(b);
 	if (rotate_a == 0 && rotate_b == 0)
 		return (0);
-	return (1); 
+	return (1);
 }
 
 int	reverse_rotate(t_stack **stack)
 {
-	t_stack	*last;
-	t_stack *penultimate;
-	
+	t_stack		*last;
+	t_stack		*penultimate;
+
 	if (*stack == NULL || (*stack)->next == NULL)
 		return (0);
 	penultimate = *stack;

@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   push_swap_ejec.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 21:39:40 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/05 18:08:37 by oduran-m         ###   ########.fr       */
+/*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
+/*   Updated: 2026/04/05 18:36:13 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atol(const char *str)
-{
-	int		i;
-	int		sign;
-	long	res;
+#include "push_swap.h"
 
-	i = 0;
-	sign = 1;
-	res = 0;
-	while ((str[i] == ' ') || ((str[i] >= 9) && (str[i] <= 13)))
-		i++;
-	if ((str[i] == '+') || (str[i] == '-'))
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while ((str[i] >= '0') && (str[i] <= '9'))
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	return (res * sign);
+int	swap_ejecution(t_stack **a, t_flag *flags)
+{
+	ft_printf("hola\n");
+	flags = NULL;
+	if (disorder_index(*a) == 0)
+		ft_printf("ordenado\n");
+	return (0);
 }

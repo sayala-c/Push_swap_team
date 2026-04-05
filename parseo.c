@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/05 16:34:59 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/05 17:18:02 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,20 @@ void	free_split(char **split)
 	free(split);
 }
 
-int	is_duplicate(t_stack *stack, int value)
+static char	**get_split(char *arg)
 {
-	while (stack != NULL)
-	{
-		if (stack->value == value)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
+	char	**split;
+
+	if (ft_strrchr(arg, ' ') != 0)
+		return (ft_split(arg, ' '));
+	split = malloc(sizeof(char *) * 2);
+	if (!split)
+		return (NULL);
+	split[0] = ft_strdup(arg);
+	if (!split[0])
+		return (free_split(split), NULL);
+	split[1] = NULL;
+	return (split);
 }
 
 int	is_valid(char *arg, t_stack **stack)
@@ -66,16 +71,7 @@ int	is_valid(char *arg, t_stack **stack)
 	int		i;
 	long	num;
 
-	if (ft_strrchr(arg, ' ') != 0)
-		split = ft_split(arg, ' ');
-	else
-	{
-		split = malloc(sizeof(char *) * 2);
-		if (!split)
-			return (0);
-		split[0] = ft_strdup(arg);
-		split[1] = NULL;
-	}
+	split = get_split(arg);
 	i = 0;
 	while (split[i])
 	{
