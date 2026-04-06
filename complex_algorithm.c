@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 17:57:32 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/06 19:11:45 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:16:47 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	stack_size(t_stack *a)
 	return (count);
 }
 
-void	radix_sort(t_stack **a, t_stack **b)
+void	radix_sort(t_stack **a, t_stack **b, t_datacount *data)
 {
 	t_stack	*head_a;
 	int		i;
