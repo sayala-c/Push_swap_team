@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/06 18:25:29 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:23:56 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,23 @@
 
 int	swap_ejecution(t_stack **a, t_flag *flags)
 {
-	ft_printf("hola\n");
-	flags = NULL;
+	t_stack		*stack_b;
+	t_datacount	datacount;
+	
+	stack_b = NULL;
 	if (disorder_index(*a) == 0)
 		ft_printf("ordenado\n");
-	else if (stack_size(*a) <= 5)
-		ft_printf("size of list: %d\n", stack_size(*a));
+	else if (flags->method == METHOD_SIMPLE)
+		ft_printf("method simple\n");
+	else if (flags->method == METHOD_MEDIUM)
+		ft_printf("method medium\n");
+	else if (flags->method == METHOD_COMPLEX)
+		radix_sort(a, &stack_b, &datacount);
+	else if (flags->method == METHOD_ADAPTIVE)
+		ft_printf("method adaptive\n");
+	if (flags->bench == 1)
+		ft_printf("benchmark\n");
+		
 	
 	return (0);
 }
