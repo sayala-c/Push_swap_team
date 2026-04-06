@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/05 18:30:33 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/06 17:27:20 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,6 @@ int		swap(t_stack **stack);
 int		swap_ss(t_stack **a, t_stack **b);
 //Ejecution swap
 int		swap_ejecution(t_stack **a, t_flag *flags);
+void	value_index(t_stack **a);
+int		stack_size(t_stack *a);
 #endif

@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/05 18:36:13 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/06 17:31:24 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	flags = NULL;
 	if (disorder_index(*a) == 0)
 		ft_printf("ordenado\n");
+	ft_printf("size of list: %d\n", stack_size(*a));
+	
 	return (0);
 }
 
