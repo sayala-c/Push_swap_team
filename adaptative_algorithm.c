@@ -14,7 +14,7 @@ void  adaptative_alg(t_stack **a, t_stack **b, t_datacount *data)
     sort_four(a, b, data, 0);
   else if (size == 5)
       sort_five(a, b, data);
-  else
+  else if
   {
     disorder = disorder_index(*a);
     if (disorder < 0.2)
