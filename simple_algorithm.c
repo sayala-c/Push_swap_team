@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithms.c                                       :+:      :+:    :+:   */
+/*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 18:46:28 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/01 18:52:11 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/06 18:56:15 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,3 +96,8 @@ void	sort_five(t_stack **a, t_stack **b, t_datacount *data)
 	sort_four(a, b, data, 1);
 	execute_operations(PA, a, b, data);	
 }
+
+/*void	simple_sort()
+{
+	
+}*/

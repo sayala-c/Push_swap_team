@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 17:57:32 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/06 18:17:17 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:11:45 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	radix_sort(t_stack **a, t_stack **b)
 		{
 			head_a = *a;
 			if (((head_a->index >> i) & 1) == 1)
-				rotate(a);
+				execute_operations(RA, a, b, data);
 			else
-				push_b(a, b);
+				execute_operations(PB, a, b, data);
 			j++;
 		}
 		while (stack_size(*b) != 0)
-			push_a(a, b);
+			execute_operations(PA, a, b, data);
 		i++;
 	}
 }

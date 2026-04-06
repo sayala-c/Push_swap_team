@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   adaptative_algorithm.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/06 19:01:04 by sayala-c          #+#    #+#             */
+/*   Updated: 2026/04/06 19:06:46 by sayala-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void  adaptative_alg(t_stack **a, t_stack **b, t_datacount *data)
+void	adaptative_alg(t_stack **a, t_stack **b, t_datacount *data)
 {
   int  size;
   double disorder;

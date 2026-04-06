@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/06 17:27:20 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/06 18:51:46 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,13 @@ t_stack	*new_node(int value);
 void	execute_operations(t_operations operation,
 			t_stack **a, t_stack **b, t_datacount *data);
 void	show_operations(t_operations operation, t_datacount *data);
+void	print_op_name(t_operations operation);
 void	update_data_count(t_operations operation, t_datacount *data);
+void	sort_three(t_stack **a, t_datacount *data);
+void	sort_four(t_stack **a, t_stack **b, t_datacount *data, int start_index);
+void	sort_five(t_stack **a, t_stack **b, t_datacount *data);
+void	adaptative_alg(t_stack **a, t_stack **b, t_datacount *data);
+void	init_datacount(t_datacount *data);
 int		push_a(t_stack **b, t_stack **a);
 int		push_b(t_stack **a, t_stack **b);
 int		rotate(t_stack **stack);
@@ -106,6 +112,8 @@ int		reverse_rotate(t_stack **stack);
 int		rotate_rrr(t_stack **a, t_stack **b);
 int		swap(t_stack **stack);
 int		swap_ss(t_stack **a, t_stack **b);
+int		min_index_position(t_stack *a, int target_index);
+int		radix_sort(t_stack **a, t_stack **b);
 //Ejecution swap
 int		swap_ejecution(t_stack **a, t_flag *flags);
 void	value_index(t_stack **a);
