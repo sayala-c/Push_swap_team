@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if (parseo(argc, argv, &opts, &stack_a))
 		ft_printf("Error\n");
+	value_index(&stack_a);
 	if (swap_ejecution(&stack_a, &opts))
 		ft_printf("Error ejec\n");
 		
