@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-void	simple_algo(t_stack **a, t_datacount *data)
+void	sort_three(t_stack **a, t_datacount *data)
 {
 	int top;
 	int middle;
 	int bottom;
 
-	top = (*a)->value;
-	middle = (*a)->next->value;
-	bottom = (*a)->next->next->value;
+	top = (*a)->index;
+	middle = (*a)->next->index;
+	bottom = (*a)->next->next->index;
 	if (top > middle && top < bottom)
 		execute_operations(SA, a, NULL, data);
 	else if (top > middle && middle > bottom)
@@ -39,7 +39,60 @@ void	simple_algo(t_stack **a, t_datacount *data)
 		execute_operations(RRA, a, NULL, data);	
 }
 
-void complex_algo(t_stack **a, t_stack **b)
+int	min_index_position(t_stack *a, int target_index)
 {
+	int	pos;
 
+	pos = 0;
+	while(a)
+	{
+		if (a->index == target_index)
+			return (pos);
+		a = a->next;
+		pos++;
+	}
+	return (0);
+}
+
+void sort_four(t_stack **a, t_stack **b, t_datacount *data, int start_index)//, lepasamos start_index para optimizar sort_five ya que en asi podemos llamar a sort_four empezando por el segundo nodo mas paque, ya que en 5 el mas peque ya lo habremos pasado a b. Pones el mas peque en primera posicion y pasarso a b para usar el sort 3, ordenar los 3 que hay en el stack y pasar b al head de a
+{
+	int	pos;
+
+	pos = min_index_position(*a, start_index);
+	if (pos == 1)
+		execute_operations(RA, a, b, data);
+	else if (pos == 2)
+	{
+		execute_operations(RA, a, b, data);
+		execute_operations(RA, a, b, data);
+	}
+	else if(pos == 3)
+		execute_operations(RRA, a, b, data);
+	execute_operations(PB, a, b, data);
+	sort_three(a, data);
+	execute_operations(PA, a, b, data);
+}
+
+void	sort_five(t_stack **a, t_stack **b, t_datacount *data)
+{
+	int	pos;
+
+	pos = min_index_position(*a, 0);
+	if (pos == 1)
+		execute_operations(RA, a, b, data);
+	else if (pos == 2)
+	{
+		execute_operations(RA, a, b, data);
+		execute_operations(RA, a, b, data);
+	}
+	else if (pos == 3)
+	{
+		execute_operations(RRA, a, b, data);
+		execute_operations(RRA, a, b, data);
+	}
+	else if (pos == 4)
+		execute_operations(RRA, a, b, data);
+	execute_operations(PB, a, b, data);
+	sort_four(a, b, data, 1);
+	execute_operations(PA, a, b, data);	
 }
