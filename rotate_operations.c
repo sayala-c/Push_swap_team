@@ -64,9 +64,9 @@ int	rotate_rrr(t_stack **a, t_stack **b)
 	int	rrr_a;
 	int	rrr_b;
 
+	if (stack_size(*a) < 2 || stack_size(*b) < 2)
+		return (0);
 	rrr_a = reverse_rotate(a);
 	rrr_b = reverse_rotate(b);
-	if (rrr_a == 0 && rrr_b == 0)
-		return (0);
 	return (1);
 }
