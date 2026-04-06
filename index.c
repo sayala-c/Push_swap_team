@@ -43,6 +43,32 @@ double	disorder_index(t_stack *a)
 	return (mistakes / pairs);
 }
 
+void	print_op_name(t_operations operation)
+{
+	if (operation == SA)
+		ft_putstr_fd("sa\n", 1);
+	else if (operation == SB)
+		ft_putstr_fd("sb\n", 1);
+	else if (operation == SS)
+		ft_putstr_fd("ss\n", 1);
+	else if (operation == PA)
+		ft_putstr_fd("pa\n", 1);
+	else if (operation == PB)
+		ft_putstr_fd("pb\n", 1);
+	else if (operation == RA)
+		ft_putstr_fd("ra\n", 1);
+	else if (operation == RB)
+		ft_putstr_fd("rb\n", 1);
+	else if (operation == RR)
+		ft_putstr_fd("rr\n", 1);
+	else if (operation == RRA)
+		ft_putstr_fd("rra\n", 1);
+	else if (operation == RRB)
+		ft_putstr_fd("rrb\n", 1);
+	else if (operation == RRR)
+		ft_putstr_fd("rrr\n", 1);
+}
+
 void	execute_operations(t_operations operation, t_stack **a,
 		t_stack **b, t_datacount *data)
 {
@@ -72,13 +98,9 @@ void	execute_operations(t_operations operation, t_stack **a,
 
 void	show_operations(t_operations operation, t_datacount *data)
 {
-	/*static char *names[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};*/
-
 	if (data->bench_mode == 1)
 		update_data_count(operation, data);		
-	ft_putstr_fd(names[operation], 1);//corregir, *names[] no esta permitido
-	write(1, "\n", 1);
-
+	print_op_name(operation);
 }
 
 void	update_data_count(t_operations operation, t_datacount *data)
