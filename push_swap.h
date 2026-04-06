@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/06 18:51:46 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:19:40 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int		rotate_rrr(t_stack **a, t_stack **b);
 int		swap(t_stack **stack);
 int		swap_ss(t_stack **a, t_stack **b);
 int		min_index_position(t_stack *a, int target_index);
-int		radix_sort(t_stack **a, t_stack **b);
+int		radix_sort(t_stack **a, t_stack **b, t_datacount *data);
 //Ejecution swap
 int		swap_ejecution(t_stack **a, t_flag *flags);
 void	value_index(t_stack **a);
