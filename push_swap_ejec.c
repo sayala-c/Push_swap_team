@@ -6,11 +6,63 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/06 20:11:33 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/06 21:09:18 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
+
+static int	int_len(long n)
+{
+	int len;
+
+	if (n == 0)
+		return (1);
+	len = 0;
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+static void	put_long_in_str(long n, char *s, int *i)
+{
+	if (n >= 10)
+		put_long_in_str(n / 10, s, i);
+	s[(*i)++] = (char)('0' + (n % 10));
+}
+
+char	*double_to_str2(double nb)
+{
+	long	whole;
+	long	dec;
+	int		len;
+	int		i;
+	char	*s;
+
+	whole = (long)nb;
+	dec = (long)((nb - whole) * 100.0 + 0.5);
+	if (dec == 100)
+	{
+		whole++;
+		dec = 0;
+	}
+	len = int_len(whole) + 1 + 2 + 1;
+	s = malloc(sizeof(char) * len);
+	if (!s)
+		return (NULL);
+	i = 0;
+	put_long_in_str(whole, s, &i);
+	s[i++] = '.';
+	if (dec < 10)
+		s[i++] = '0';
+	put_long_in_str(dec, s, &i);
+	s[i] = '\0';
+	return (s);
+}
 
 static const char	*method_name(t_method m)
 {
@@ -27,9 +79,12 @@ static const char	*method_name(t_method m)
 
 void	benchmark(t_flag *flags, t_datacount *data, double disorder)
 {
-	ft_printf("[bench] disorder: %d%%\n", disorder);
+	char	*str_dis;
+
+	str_dis = double_to_str2(disorder);
+	ft_printf("[bench] disorder: %s%%\n", str_dis);
 	ft_printf("[bench] strategy: %s\n", method_name(flags->method));
-	ft_printf("[bench] total_ops: %d%%\n", data->total_operations);
+	ft_printf("[bench] total_ops: %d\n", data->total_operations);
 	ft_printf("[bench] sa: %d ", data->sa);
 	ft_printf("sb: %d ", data->sb);
 	ft_printf("ss: %d ", data->ss);
@@ -49,7 +104,7 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	t_datacount	datacount;
 	double		disorder;
 	
-	disorder = disorder_index(*a);
+	disorder = disorder_index(*a) * 100;	
 	stack_b = NULL;
 	if (disorder == 0)
 		ft_printf("ordenado\n");
