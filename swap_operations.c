@@ -34,9 +34,9 @@ int	swap_ss(t_stack **a, t_stack **b)
 	int	call_a;
 	int	call_b;
 
+	if (stack_size(*a) < 2 || stack_size(*b) < 2)
+		return (0);
 	call_a = swap(a);
 	call_b = swap(b);
-	if (call_a == 0 && call_b == 0)
-		return (0);
 	return (1);
 }
