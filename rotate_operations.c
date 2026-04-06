@@ -35,10 +35,10 @@ int	rotate_rr(t_stack **a, t_stack **b)
 	int	rotate_a;
 	int	rotate_b;
 
+	if (stack_size(*a) < 2 || stack_size(*b) < 2)
+		return (0);
 	rotate_a = rotate(a);
 	rotate_b = rotate(b);
-	if (rotate_a == 0 && rotate_b == 0)
-		return (0);
 	return (1);
 }
 
