@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/06 21:09:18 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/06 21:48:45 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ char	*double_to_str2(double nb)
 	return (s);
 }
 
-static const char	*method_name(t_method m)
+char	*method_name(t_method m)
 {
 	if (m == METHOD_SIMPLE)
 		return ("Simple / O(n2)");
 	if (m == METHOD_MEDIUM)
 		return ("Medium / O(n√n)");
 	if (m == METHOD_COMPLEX)
-		return ("Complex / O(nlogn)");
+		return ("Complex / O(n log n)");
 	if (m == METHOD_ADAPTIVE)
 		return ("Adaptive / O(n√n)");
 	return ("NONE");
@@ -82,10 +82,15 @@ void	benchmark(t_flag *flags, t_datacount *data, double disorder)
 	char	*str_dis;
 
 	str_dis = double_to_str2(disorder);
-	ft_printf("[bench] disorder: %s%%\n", str_dis);
-	ft_printf("[bench] strategy: %s\n", method_name(flags->method));
-	ft_printf("[bench] total_ops: %d\n", data->total_operations);
-	ft_printf("[bench] sa: %d ", data->sa);
+	ft_putstr_fd("[bench] disorder: ", 2);
+	ft_putstr_fd(str_dis, 2);
+	ft_putstr_fd("%\n[bench] strategy: ", 2);
+	ft_putstr_fd(method_name(flags->method), 2);
+	ft_putstr_fd("\n[bench] total_ops: ", 2);
+	ft_putnbr_fd(data->total_operations, 2);
+	ft_putstr_fd("\n[bench] sa: ", 2);
+	ft_putnbr_fd(data->sa, 2);
+	ft_putstr_fd(" sb: ", 2);
 	ft_printf("sb: %d ", data->sb);
 	ft_printf("ss: %d ", data->ss);
 	ft_printf("pa: %d ", data->pa);
@@ -106,6 +111,7 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	
 	disorder = disorder_index(*a) * 100;	
 	stack_b = NULL;
+	init_datacount(&datacount);
 	if (disorder == 0)
 		ft_printf("ordenado\n");
 	else if (flags->method == METHOD_SIMPLE)
