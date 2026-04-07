@@ -116,7 +116,6 @@ void	sort_four(t_stack **a, t_stack **b, t_datacount *data, int start_index);
 void	sort_five(t_stack **a, t_stack **b, t_datacount *data);
 void    move_to_top(t_stack **a, t_stack **b, t_datacount *data, int target_index);
 void    simple_sort(t_stack **a, t_stack **b, t_datacount *data);
-void	select_simple(t_stack **a, t_stack **b, t_datacount *data);
 int		min_index_position(t_stack *a, int target_index);
 //complex_algorithm.c
 int		stack_size(t_stack *a);
@@ -130,4 +129,5 @@ void	select_simple(t_stack **a, t_stack **b, t_datacount *data);
 
 //bench.c
 void	benchmark(t_flag *flags, t_datacount *data, double disorder);
+
 #endif
