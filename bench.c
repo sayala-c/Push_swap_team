@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 20:10:07 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/07 20:14:23 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:29:22 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	print_disorder(double disorder)
 {
 	int	num;
 	int	dec;
-	
+
 	num = disorder;
 	dec = (num - disorder) * 100 + 0.5;
 	if (num == 100)
@@ -43,14 +43,8 @@ static void	print_disorder(double disorder)
 	ft_putnbr_fd(dec, 2);
 }
 
-void	benchmark(t_flag *flags, t_datacount *data, double disorder)
+static void	print_move(t_datacount *data)
 {
-	ft_putstr_fd("[bench] disorder: ", 2);
-	print_disorder(disorder);
-	ft_putstr_fd("%\n[bench] strategy: ", 2);
-	ft_putstr_fd(method_name(flags->method), 2);
-	ft_putstr_fd("\n[bench] total_ops: ", 2);
-	ft_putnbr_fd(data->total_operations, 2);
 	ft_putstr_fd("\n[bench] sa: ", 2);
 	ft_putnbr_fd(data->sa, 2);
 	ft_putstr_fd(" sb: ", 2);
@@ -74,4 +68,15 @@ void	benchmark(t_flag *flags, t_datacount *data, double disorder)
 	ft_putstr_fd(" rrr: ", 2);
 	ft_putnbr_fd(data->rrr, 2);
 	ft_putstr_fd("\n", 2);
+}
+
+void	benchmark(t_flag *flags, t_datacount *data, double disorder)
+{
+	ft_putstr_fd("[bench] disorder: ", 2);
+	print_disorder(disorder);
+	ft_putstr_fd("%\n[bench] strategy: ", 2);
+	ft_putstr_fd(method_name(flags->method), 2);
+	ft_putstr_fd("\n[bench] total_ops: ", 2);
+	ft_putnbr_fd(data->total_operations, 2);
+	print_move(data);
 }

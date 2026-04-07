@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/07 20:07:49 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:35:46 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	t_stack		*stack_b;
 	t_datacount	datacount;
 	double		disorder;
-	
-	disorder = disorder_index(*a) * 100;	
+
+	disorder = disorder_index(*a) * 100;
 	stack_b = NULL;
 	init_datacount(&datacount);
 	datacount.bench_mode = flags->bench;
@@ -34,18 +34,17 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	else if (flags->method == METHOD_ADAPTIVE)
 		adaptative_alg(a, &stack_b, &datacount);
 	if (flags->bench == 1 && disorder != 0)
-		benchmark(flags, &datacount, disorder);	
+		benchmark (flags, &datacount, disorder);
 	return (0);
 }
 
-
 void	value_index(t_stack **a)
 {
-	int	size;
-	int	i;
-	t_stack	 *min_node;
-	t_stack	*current;
-	
+	int			size;
+	int			i;
+	t_stack		*min_node;
+	t_stack		*current;
+
 	i = 0;
 	size = stack_size(*a);
 	while (i < size)
@@ -54,12 +53,13 @@ void	value_index(t_stack **a)
 		min_node = NULL;
 		while (current != NULL)
 		{
-			if (current->index == -1  && (min_node == NULL || current->value < min_node->value))
+			if (current->index == -1 && (min_node == NULL
+					|| current->value < min_node->value))
 				min_node = current;
 			current = current->next;
 		}
-			if (min_node != NULL)
-				min_node->index = i;
+		if (min_node != NULL)
+			min_node->index = i;
 		i++;
 	}
 }
