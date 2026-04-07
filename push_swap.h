@@ -92,36 +92,42 @@ int		is_duplicate(t_stack *stack, int value);
 void	init_flag(t_flag *flags);
 int		push_back(t_stack **stack, int value);
 void	init_datacount(t_datacount *data);
-
-//Functiion Algoritmo
+//index.c
 double	disorder_index(t_stack *a);
+void	print_op_name(t_operations operation);
 void	execute_operations(t_operations operation,
 			t_stack **a, t_stack **b, t_datacount *data);
 void	show_operations(t_operations operation, t_datacount *data);
-void	print_op_name(t_operations operation);
 void	update_data_count(t_operations operation, t_datacount *data);
-void	sort_three(t_stack **a, t_datacount *data);
-void	sort_four(t_stack **a, t_stack **b, t_datacount *data, int start_index);
-void	sort_five(t_stack **a, t_stack **b, t_datacount *data);
-void	adaptative_alg(t_stack **a, t_stack **b, t_datacount *data);
-void    move_to_top(t_stack **a, t_stack **b, t_datacount *data, int target_index);
-void    simple_sort(t_stack **a, t_stack **b, t_datacount *data);
-void	select_simple(t_stack **a, t_stack **b, t_datacount *data);
+//push_operatios.c
 int		push_a(t_stack **b, t_stack **a);
 int		push_b(t_stack **a, t_stack **b);
+//rotate_operations.c
 int		rotate(t_stack **stack);
 int		rotate_rr(t_stack **a, t_stack **b);
 int		reverse_rotate(t_stack **stack);
 int		rotate_rrr(t_stack **a, t_stack **b);
+//swap_operations.c
 int		swap(t_stack **stack);
 int		swap_ss(t_stack **a, t_stack **b);
+//simple_algorithm.c
+void	sort_three(t_stack **a, t_datacount *data);
+void	sort_four(t_stack **a, t_stack **b, t_datacount *data, int start_index);
+void	sort_five(t_stack **a, t_stack **b, t_datacount *data);
+void    move_to_top(t_stack **a, t_stack **b, t_datacount *data, int target_index);
+void    simple_sort(t_stack **a, t_stack **b, t_datacount *data);
+void	select_simple(t_stack **a, t_stack **b, t_datacount *data);
 int		min_index_position(t_stack *a, int target_index);
+//complex_algorithm.c
+int		stack_size(t_stack *a);
 void	radix_sort(t_stack **a, t_stack **b, t_datacount *data);
+//adaptative_algorithm.c
+void	adaptative_alg(t_stack **a, t_stack **b, t_datacount *data);
 //push_swap_ejec.c
 int		swap_ejecution(t_stack **a, t_flag *flags);
 void	value_index(t_stack **a);
+void	select_simple(t_stack **a, t_stack **b, t_datacount *data);
 
-int		stack_size(t_stack *a);
 //bench.c
 void	benchmark(t_flag *flags, t_datacount *data, double disorder);
 #endif
