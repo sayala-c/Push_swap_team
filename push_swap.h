@@ -106,6 +106,7 @@ void	adaptative_alg(t_stack **a, t_stack **b, t_datacount *data);
 void	init_datacount(t_datacount *data);
 void    move_to_top(t_stack **a, t_stack **b, t_datacount *data, int target_index);
 void    simple_sort(t_stack **a, t_stack **b, t_datacount *data);
+void	select_simple(t_stack **a, t_stack **b, t_datacount *data);
 int		push_a(t_stack **b, t_stack **a);
 int		push_b(t_stack **a, t_stack **b);
 int		rotate(t_stack **stack);
