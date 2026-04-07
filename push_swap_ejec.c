@@ -116,13 +116,13 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	if (disorder == 0)
 		ft_printf("ordenado\n");
 	else if (flags->method == METHOD_SIMPLE)
-		ft_printf("method simple\n");
+		simple_sort(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_MEDIUM)
 		ft_printf("method medium\n");
 	else if (flags->method == METHOD_COMPLEX)
 		radix_sort(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_ADAPTIVE)
-		ft_printf("method adaptive\n");
+		adaptative_alg(a, &stack_b, &datacount);
 	if (flags->bench == 1)
 		benchmark(flags, &datacount, disorder);
 		
