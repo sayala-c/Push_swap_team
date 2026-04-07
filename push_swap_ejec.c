@@ -13,6 +13,18 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+void    select_simple(t_stack **a, t_stack **b, t_datacount *data)
+{
+    if (stack_size(*a) == 3)
+        sort_three(a, data);
+    else if (stack_size(*a) == 4)
+        sort_four(a, b, data, 0); 
+    else if (stack_size(*a) == 5)
+        sort_five(a, b, data);
+    else
+        simple_sort(a, b, data);
+}
+
 int	swap_ejecution(t_stack **a, t_flag *flags)
 {
 	t_stack		*stack_b;
@@ -26,7 +38,7 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	if (disorder == 0)
 		return (0);
 	else if (flags->method == METHOD_SIMPLE)
-		simple_sort(a, &stack_b, &datacount);
+		select_simple(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_MEDIUM)
 		ft_printf("method medium\n");
 	else if (flags->method == METHOD_COMPLEX)
