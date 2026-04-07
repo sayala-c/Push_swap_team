@@ -112,6 +112,7 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	disorder = disorder_index(*a) * 100;	
 	stack_b = NULL;
 	init_datacount(&datacount);
+	datacount.bench_mode = flags->bench;
 	if (disorder == 0)
 		ft_printf("ordenado\n");
 	else if (flags->method == METHOD_SIMPLE)
