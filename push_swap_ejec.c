@@ -6,63 +6,13 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/06 21:48:45 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:07:49 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static int	int_len(long n)
-{
-	int len;
-
-	if (n == 0)
-		return (1);
-	len = 0;
-	while (n > 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-static void	put_long_in_str(long n, char *s, int *i)
-{
-	if (n >= 10)
-		put_long_in_str(n / 10, s, i);
-	s[(*i)++] = (char)('0' + (n % 10));
-}
-
-char	*double_to_str2(double nb)
-{
-	long	whole;
-	long	dec;
-	int		len;
-	int		i;
-	char	*s;
-
-	whole = (long)nb;
-	dec = (long)((nb - whole) * 100.0 + 0.5);
-	if (dec == 100)
-	{
-		whole++;
-		dec = 0;
-	}
-	len = int_len(whole) + 1 + 2 + 1;
-	s = malloc(sizeof(char) * len);
-	if (!s)
-		return (NULL);
-	i = 0;
-	put_long_in_str(whole, s, &i);
-	s[i++] = '.';
-	if (dec < 10)
-		s[i++] = '0';
-	put_long_in_str(dec, s, &i);
-	s[i] = '\0';
-	return (s);
-}
 
 char	*method_name(t_method m)
 {
@@ -77,13 +27,28 @@ char	*method_name(t_method m)
 	return ("NONE");
 }
 
+void	print_disorder(double disorder)
+{
+	int	num;
+	int	dec;
+	
+	num = disorder;
+	dec = (num - disorder) * 100 + 0.5;
+	if (num == 100)
+		return (ft_putstr_fd("100", 2));
+	ft_putnbr_fd(num, 2);
+	write(2, ".", 1);
+	if (dec < 0)
+		dec *= -1;
+	if (dec == 0)
+		return (ft_putstr_fd("00", 2));
+	ft_putnbr_fd(dec, 2);
+}
+
 void	benchmark(t_flag *flags, t_datacount *data, double disorder)
 {
-	char	*str_dis;
-
-	str_dis = double_to_str2(disorder);
 	ft_putstr_fd("[bench] disorder: ", 2);
-	ft_putstr_fd(str_dis, 2);
+	print_disorder(disorder);
 	ft_putstr_fd("%\n[bench] strategy: ", 2);
 	ft_putstr_fd(method_name(flags->method), 2);
 	ft_putstr_fd("\n[bench] total_ops: ", 2);
@@ -91,16 +56,26 @@ void	benchmark(t_flag *flags, t_datacount *data, double disorder)
 	ft_putstr_fd("\n[bench] sa: ", 2);
 	ft_putnbr_fd(data->sa, 2);
 	ft_putstr_fd(" sb: ", 2);
-	ft_printf("sb: %d ", data->sb);
-	ft_printf("ss: %d ", data->ss);
-	ft_printf("pa: %d ", data->pa);
-	ft_printf("pb: %d \n", data->pb);
-	ft_printf("[bench] ra: %d ", data->ra);
-	ft_printf("rb: %d ", data->rb);
-	ft_printf("rr: %d ", data->rr);
-	ft_printf("rra: %d ", data->rra);
-	ft_printf("rrb: %d ", data->rrb);
-	ft_printf("rrr: %d \n", data->rrr);
+	ft_putnbr_fd(data->sb, 2);
+	ft_putstr_fd(" ss: ", 2);
+	ft_putnbr_fd(data->ss, 2);
+	ft_putstr_fd(" pa: ", 2);
+	ft_putnbr_fd(data->pa, 2);
+	ft_putstr_fd(" pb: ", 2);
+	ft_putnbr_fd(data->pb, 2);
+	ft_putstr_fd("\n[bench] ra: ", 2);
+	ft_putnbr_fd(data->ra, 2);
+	ft_putstr_fd(" rb: ", 2);
+	ft_putnbr_fd(data->rb, 2);
+	ft_putstr_fd(" rr: ", 2);
+	ft_putnbr_fd(data->rr, 2);
+	ft_putstr_fd(" rra: ", 2);
+	ft_putnbr_fd(data->rra, 2);
+	ft_putstr_fd(" rrb: ", 2);
+	ft_putnbr_fd(data->rrb, 2);
+	ft_putstr_fd(" rrr: ", 2);
+	ft_putnbr_fd(data->rrr, 2);
+	ft_putstr_fd("\n", 2);
 }
 
 int	swap_ejecution(t_stack **a, t_flag *flags)
@@ -114,7 +89,7 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	init_datacount(&datacount);
 	datacount.bench_mode = flags->bench;
 	if (disorder == 0)
-		ft_printf("ordenado\n");
+		return (0);
 	else if (flags->method == METHOD_SIMPLE)
 		simple_sort(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_MEDIUM)
@@ -123,10 +98,8 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 		radix_sort(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_ADAPTIVE)
 		adaptative_alg(a, &stack_b, &datacount);
-	if (flags->bench == 1)
-		benchmark(flags, &datacount, disorder);
-		
-	
+	if (flags->bench == 1 && disorder != 0)
+		benchmark(flags, &datacount, disorder);	
 	return (0);
 }
 
