@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/06 19:25:01 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:13:35 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,6 @@ void	radix_sort(t_stack **a, t_stack **b, t_datacount *data);
 int		swap_ejecution(t_stack **a, t_flag *flags);
 void	value_index(t_stack **a);
 int		stack_size(t_stack *a);
+//bench.c
+void	benchmark(t_flag *flags, t_datacount *data, double disorder);
 #endif

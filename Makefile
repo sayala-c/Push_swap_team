@@ -6,7 +6,7 @@
 #    By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/17 19:21:00 by oduran-m          #+#    #+#              #
-#    Updated: 2026/04/06 18:29:14 by sayala-c         ###   ########.fr        #
+#    Updated: 2026/04/07 20:12:34 by oduran-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT =	$(LIBFT_DIR)/libft.a
 
 SRC = push_swap.c parseo.c inits.c index.c rotate_operations.c push_operations.c \
 		swap_operations.c parseo_tools.c push_swap_ejec.c complex_algorithm.c \
-		simple_algorithm.c adaptative_algorithm.c
+		simple_algorithm.c adaptative_algorithm.c bench.c
 OBJS = $(SRC:.c=.o)
 
 INCLUDES = -I. -I$(LIBFT_DIR) 
