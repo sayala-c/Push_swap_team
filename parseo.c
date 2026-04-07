@@ -6,14 +6,14 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/05 17:18:02 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:45:46 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-int	parse_flag(t_flag *opts, char *argv)
+static int	parse_flag(t_flag *opts, char *argv)
 {
 	if (!ft_strncmp(argv, "--simple", 9) && argv[8] == '\0')
 		return (set_method(opts, METHOD_SIMPLE));
@@ -34,7 +34,7 @@ int	parse_flag(t_flag *opts, char *argv)
 	return (1);
 }
 
-void	free_split(char **split)
+static void	free_split(char **split)
 {
 	int	i;
 
@@ -65,7 +65,7 @@ static char	**get_split(char *arg)
 	return (split);
 }
 
-int	is_valid(char *arg, t_stack **stack)
+static int	is_valid(char *arg, t_stack **stack)
 {
 	char	**split;
 	int		i;

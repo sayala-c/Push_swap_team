@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/07 20:13:35 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:53:54 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,19 @@ typedef struct s_datacount
 	int	rrr;
 	int	total_operations;
 }	t_datacount; // son variables, se inicializa poniendo todo a 0 en el inits.c
-
-//Function Parseo
+//parseo.c
+int		parseo(int argc, char **argv, t_flag *opts, t_stack **stack);
+//parseo_tools.c
 int		set_method(t_flag *opts, t_method m);
 int		is_valid_int(char *str);
-int		parseo(int argc, char **argv, t_flag *opts, t_stack **stack);
-int		parse_flag(t_flag *opts, char *argv);
+int		is_duplicate(t_stack *stack, int value);
+//init.c
 void	init_flag(t_flag *flags);
 int		push_back(t_stack **stack, int value);
-int		is_duplicate(t_stack *stack, int value);
-//Function Algoritmo
+void	init_datacount(t_datacount *data);
+
+//Functiion Algoritmo
 double	disorder_index(t_stack *a);
-t_stack	*new_node(int value);
 void	execute_operations(t_operations operation,
 			t_stack **a, t_stack **b, t_datacount *data);
 void	show_operations(t_operations operation, t_datacount *data);
@@ -103,7 +104,6 @@ void	sort_three(t_stack **a, t_datacount *data);
 void	sort_four(t_stack **a, t_stack **b, t_datacount *data, int start_index);
 void	sort_five(t_stack **a, t_stack **b, t_datacount *data);
 void	adaptative_alg(t_stack **a, t_stack **b, t_datacount *data);
-void	init_datacount(t_datacount *data);
 void    move_to_top(t_stack **a, t_stack **b, t_datacount *data, int target_index);
 void    simple_sort(t_stack **a, t_stack **b, t_datacount *data);
 void	select_simple(t_stack **a, t_stack **b, t_datacount *data);

@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/07 20:35:46 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:52:43 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 		radix_sort(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_ADAPTIVE)
 		adaptative_alg(a, &stack_b, &datacount);
-	if (flags->bench == 1 && disorder != 0)
+	if (flags->bench == 1)
 		benchmark (flags, &datacount, disorder);
 	return (0);
 }
