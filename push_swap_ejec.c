@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/08 20:30:53 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/08 21:19:49 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	free_stack(t_stack **stack)
 
 void	select_simple(t_stack **a, t_stack **b, t_datacount *data)
 {
-	if (stack_size(*a) == 3)
+	if (stack_size(*a) == 2)
+		execute_operations(SA, a, b, data);
+	else if (stack_size(*a) == 3)
 		sort_three(a, data);
 	else if (stack_size(*a) == 4)
 		sort_four(a, b, data, 0);
