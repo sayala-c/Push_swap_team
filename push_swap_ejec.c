@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/07 21:13:43 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 19:32:48 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	free_stack(t_stack **stack)
 {
-	t_stack *tmp;
-	
+	t_stack	*tmp;
+
 	if (!stack || !*stack)
 		return ;
 	while (*stack)
@@ -28,16 +28,16 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void    select_simple(t_stack **a, t_stack **b, t_datacount *data)
+void	select_simple(t_stack **a, t_stack **b, t_datacount *data)
 {
-    if (stack_size(*a) == 3)
-        sort_three(a, data);
-    else if (stack_size(*a) == 4)
-        sort_four(a, b, data, 0); 
-    else if (stack_size(*a) == 5)
-        sort_five(a, b, data);
-    else
-        simple_sort(a, b, data);
+	if (stack_size(*a) == 3)
+		sort_three(a, data);
+	else if (stack_size(*a) == 4)
+		sort_four(a, b, data, 0);
+	else if (stack_size(*a) == 5)
+		sort_five(a, b, data);
+	else
+		simple_sort(a, b, data);
 }
 
 int	swap_ejecution(t_stack **a, t_flag *flags)

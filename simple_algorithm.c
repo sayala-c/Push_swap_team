@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 18:46:28 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/06 18:56:15 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/08 19:52:29 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	sort_three(t_stack **a, t_datacount *data)
 {
-	int top;
-	int middle;
-	int bottom;
+	int	top;
+	int	middle;
+	int	bottom;
 
 	top = (*a)->index;
 	middle = (*a)->next->index;
@@ -36,7 +36,7 @@ void	sort_three(t_stack **a, t_datacount *data)
 		execute_operations(RA, a, NULL, data);
 	}
 	else if (top < middle && middle > bottom && top > bottom)
-		execute_operations(RRA, a, NULL, data);	
+		execute_operations(RRA, a, NULL, data);
 }
 
 int	min_index_position(t_stack *a, int target_index)
@@ -44,7 +44,7 @@ int	min_index_position(t_stack *a, int target_index)
 	int	pos;
 
 	pos = 0;
-	while(a)
+	while (a)
 	{
 		if (a->index == target_index)
 			return (pos);
@@ -66,7 +66,7 @@ void sort_four(t_stack **a, t_stack **b, t_datacount *data, int start_index)//, 
 		execute_operations(RA, a, b, data);
 		execute_operations(RA, a, b, data);
 	}
-	else if(pos == 3)
+	else if (pos == 3)
 		execute_operations(RRA, a, b, data);
 	execute_operations(PB, a, b, data);
 	sort_three(a, data);
@@ -94,41 +94,42 @@ void	sort_five(t_stack **a, t_stack **b, t_datacount *data)
 		execute_operations(RRA, a, b, data);
 	execute_operations(PB, a, b, data);
 	sort_four(a, b, data, 1);
-	execute_operations(PA, a, b, data);	
+	execute_operations(PA, a, b, data);
 }
 
-void    move_to_top(t_stack **a, t_stack **b, t_datacount *data, int target_index)
+void	move_to_top(t_stack **a, t_stack **b,
+			t_datacount *data, int target_index)
 {
-    int size;
-    int min_pos;
+	int	size;
+	int	min_pos;
 
-    size = stack_size(*a);
-    min_pos = min_index_position(*a, target_index);
+	size = stack_size(*a);
+	min_pos = min_index_position(*a, target_index);
 	while (min_pos != 0)
-    {
-        if (min_pos <= size/2)
-            execute_operations(RA, a, b, data);
-        else
-            execute_operations(RRA, a , b, data);
-        min_pos = min_index_position(*a, target_index);
-    }
+	{
+		if (min_pos <= size / 2)
+			execute_operations(RA, a, b, data);
+		else
+			execute_operations(RRA, a, b, data);
+		min_pos = min_index_position(*a, target_index);
+	}
 }
 
-void    simple_sort(t_stack **a, t_stack **b, t_datacount *data)
+void	simple_sort(t_stack **a, t_stack **b, t_datacount *data)
 {
-    int size;
-    int target_index;
+	int	size;
+	int	target_index;
 
-    target_index = 0;
-    size = stack_size(*a);
-    while (size > 3)
-    {
-        move_to_top(a, b, data, target_index);
-        target_index++;
-        execute_operations(PB, a, b, data);
-        size = stack_size(*a);
-    }
-    sort_three(a, data);
-    while (*b)
-        execute_operations(PA, a, b, data);
+	target_index = 0;
+	size = stack_size(*a);
+	while (size > 3)
+	{
+		move_to_top(a, b, data, target_index);
+		target_index++;
+		execute_operations(PB, a, b, data);
+		size = stack_size(*a);
+	}
+	sort_three(a, data);
+	while (*b)
+		execute_operations(PA, a, b, data);
 }

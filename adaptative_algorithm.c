@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:01:04 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/06 19:29:33 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 19:36:01 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	adaptative_alg(t_stack **a, t_stack **b, t_datacount *data)
 	else if (size == 5)
 		sort_five(a, b, data);
 	else
-	{	
+	{
 		disorder = disorder_index(*a);
 		/*if (disorder < 0.2)
 			//simple_sort();

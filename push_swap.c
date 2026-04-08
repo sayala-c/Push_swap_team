@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:45:29 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/07 20:15:44 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 19:57:46 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ int	main(int argc, char **argv)
 	if (parseo(argc, argv, &opts, &stack_a))
 	{
 		ft_printf("Error\n");
-		return (0);
+		return (free_stack(&stack_a), 0);
 	}
 	value_index(&stack_a);
 	if (swap_ejecution(&stack_a, &opts))
 		ft_printf("Error ejec\n");
-		
 	return (0);
 }

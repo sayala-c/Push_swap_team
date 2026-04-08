@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/07 21:04:16 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 19:34:51 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,9 @@ int		swap_ss(t_stack **a, t_stack **b);
 void	sort_three(t_stack **a, t_datacount *data);
 void	sort_four(t_stack **a, t_stack **b, t_datacount *data, int start_index);
 void	sort_five(t_stack **a, t_stack **b, t_datacount *data);
-void    move_to_top(t_stack **a, t_stack **b, t_datacount *data, int target_index);
-void    simple_sort(t_stack **a, t_stack **b, t_datacount *data);
+void	move_to_top(t_stack **a, t_stack **b, t_datacount *data,
+			int target_index);
+void	simple_sort(t_stack **a, t_stack **b, t_datacount *data);
 int		min_index_position(t_stack *a, int target_index);
 //middle_algorithm.c
 void	chunks_sort(t_stack **a, t_stack **b, t_datacount *data);
@@ -132,7 +133,7 @@ void	adaptative_alg(t_stack **a, t_stack **b, t_datacount *data);
 int		swap_ejecution(t_stack **a, t_flag *flags);
 void	value_index(t_stack **a);
 void	select_simple(t_stack **a, t_stack **b, t_datacount *data);
-
+void	free_stack(t_stack **stack);
 //bench.c
 void	benchmark(t_flag *flags, t_datacount *data, double disorder);
 

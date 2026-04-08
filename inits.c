@@ -6,17 +6,17 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 14:02:55 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/07 21:12:04 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 19:56:22 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    init_flag(t_flag *flags)
+void	init_flag(t_flag *flags)
 {
-    flags->method = METHOD_NONE;
-    flags->bench = 0;
-    flags->error = 0;
+	flags->method = METHOD_NONE;
+	flags->bench = 0;
+	flags->error = 0;
 }
 
 t_stack	*new_node(int value)
@@ -34,8 +34,8 @@ t_stack	*new_node(int value)
 
 int	push_back(t_stack **stack, int value)
 {
-	t_stack *node;
-	t_stack *tmp;
+	t_stack	*node;
+	t_stack	*tmp;
 
 	node = new_node(value);
 	if (!node)
@@ -52,7 +52,7 @@ int	push_back(t_stack **stack, int value)
 	return (1);
 }
 
-void init_datacount(t_datacount *data)
+void	init_datacount(t_datacount *data)
 {
 	ft_memset(data, 0, sizeof(t_datacount));
 }
