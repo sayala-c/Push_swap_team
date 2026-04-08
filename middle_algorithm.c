@@ -49,11 +49,9 @@ void    chunks_sort(t_stack **a, t_stack **b, t_datacount *data)
 void    return_to_a(t_stack **a, t_stack **b, t_datacount *data)
 {
     int max_pos;
-    int size_b;
 
     while (*b)
     {
-        size_b = stack_size(*b);
         max_pos = max_index_position(*b);
         move_to_top_b(a, b, data, max_pos, size_b);
         execute_operations(PA, a, b, data);
@@ -85,8 +83,11 @@ int max_index_position(t_stack *b)
 
 void    move_to_top_b(t_stack **a, t_stack **b, t_datacount *data, int max_pos, int size)//para ordenar el stack b
 {
+    int size;
+ 
     while (max_pos != 0)
     {
+        size = stack_size(*b);
         if (max_pos <= size / 2)
         {
             // Si está en la primera mitad, rotamos hacia arriba
