@@ -45,3 +45,57 @@ void    chunks_sort(t_stack **a, t_stack **b, t_datacount *data)
     }
     return_to_a(a, b, data);
 }
+
+void    return_to_a(t_stack **a, t_stack **b, t_datacount *data)
+{
+    int max_pos;
+
+    while (*b)
+    {
+        max_pos = max_index_position(*b);
+        move_to_top_b(a, b, data, max_pos, size_b);
+        execute_operations(PA, a, b, data);
+    }
+}
+
+int max_index_position(t_stack *b)
+{
+    int current_pos;
+    int max_index;
+    int max_pos;
+
+    current_pos = 0;
+    max_index = -1;
+    max_pos = 0;
+
+    while(b)
+    {
+        if (b->index > max_index)
+        {
+            max_index = b->index;
+            max_pos = current_pos;
+        }
+        b = b->next;
+        current_pos++;
+    }
+    return (max_pos);
+}
+
+void    move_to_top_b(t_stack **a, t_stack **b, t_datacount *data, int max_pos, int size)//para ordenar el stack b
+{
+    while (max_pos != 0)
+    {
+        if (max_pos <= size / 2)
+        {
+            // Si está en la primera mitad, rotamos hacia arriba
+            execute_operations(RB, a, b, data);
+        }
+        else
+        {
+            // Si está en la segunda mitad, rotamos hacia abajo
+            execute_operations(RRB, a, b, data);
+        }
+        // Después de cada movimiento, la posición del máximo cambia
+        max_pos = max_index_position(*b);
+    }
+}
