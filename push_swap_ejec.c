@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/08 21:19:49 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/08 21:47:06 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	init_datacount(&datacount);
 	datacount.bench_mode = 1;
 	if (disorder == 0)
-		return (free_stack(a), 0);
+		disorder = 0;
 	else if (flags->method == METHOD_SIMPLE)
 		select_simple(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_MEDIUM)

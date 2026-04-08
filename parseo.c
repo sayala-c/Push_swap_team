@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/08 21:19:56 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 22:09:45 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	is_valid(char *arg, t_stack **stack)
 	while (split[i])
 	{
 		if (is_valid_int(split[i]))
-			return (free_split(split), !flag);
+			return (free_split(split), flag);
 		num = ft_atol(split[i++], &flag);
 		if (num > INT_MAX || num < INT_MIN)
 			return (free_split(split), !flag);
