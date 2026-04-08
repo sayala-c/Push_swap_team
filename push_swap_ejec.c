@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/08 19:32:48 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 20:30:53 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int	swap_ejecution(t_stack **a, t_flag *flags)
 	disorder = disorder_index(*a) * 100;
 	stack_b = NULL;
 	init_datacount(&datacount);
-	datacount.bench_mode = flags->bench;
+	datacount.bench_mode = 1;
 	if (disorder == 0)
 		return (free_stack(a), 0);
 	else if (flags->method == METHOD_SIMPLE)
 		select_simple(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_MEDIUM)
-		ft_printf("method medium\n");
+		chunks_sort(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_COMPLEX)
 		radix_sort(a, &stack_b, &datacount);
 	else if (flags->method == METHOD_ADAPTIVE)

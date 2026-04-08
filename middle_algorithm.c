@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 15:40:57 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/08 19:44:42 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 20:08:37 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	max_index_position(t_stack *b)
 }
 
 void	move_to_top_b(t_stack **a, t_stack **b, t_datacount *data, int max_pos)
-//para ordenar el stack b
 {
 	int	size;
 
@@ -90,15 +89,12 @@ void	move_to_top_b(t_stack **a, t_stack **b, t_datacount *data, int max_pos)
 		size = stack_size(*b);
 		if (max_pos <= size / 2)
 		{
-			// Si está en la primera mitad, rotamos hacia arriba
 			execute_operations(RB, a, b, data);
 		}
 		else
 		{
-			// Si está en la segunda mitad, rotamos hacia abajo
 			execute_operations(RRB, a, b, data);
 		}
-		// Después de cada movimiento, la posición del máximo cambia
 		max_pos = max_index_position(*b);
 	}
 }

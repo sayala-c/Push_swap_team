@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:05:09 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/06 17:23:48 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 20:28:46 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void	execute_operations(t_operations operation, t_stack **a,
 void	show_operations(t_operations operation, t_datacount *data)
 {
 	if (data->bench_mode == 1)
-		update_data_count(operation, data);		
-	print_op_name(operation);
+		print_op_name(operation);
+	update_data_count(operation, data);		
 }
 
 void	update_data_count(t_operations operation, t_datacount *data)
