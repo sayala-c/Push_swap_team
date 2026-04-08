@@ -54,7 +54,7 @@ void    return_to_a(t_stack **a, t_stack **b, t_datacount *data)
     while (*b)
     {
         max_pos = max_index_position(*b);
-        move_to_top_b(a, b, data, max_pos, size_b);
+        move_to_top_b(a, b, data, max_pos);
         execute_operations(PA, a, b, data);
     }
 }
@@ -82,7 +82,7 @@ int max_index_position(t_stack *b)
     return (max_pos);
 }
 
-void    move_to_top_b(t_stack **a, t_stack **b, t_datacount *data, int max_pos, int size)//para ordenar el stack b
+void    move_to_top_b(t_stack **a, t_stack **b, t_datacount *data, int max_pos)//para ordenar el stack b
 {
     int size;
  
