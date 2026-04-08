@@ -6,11 +6,13 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:39:40 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/05 18:08:37 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 21:34:03 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atol(const char *str)
+#include <limits.h>
+
+long	ft_atol(const char *str, int *flag)
 {
 	int		i;
 	int		sign;
@@ -22,15 +24,16 @@ long	ft_atol(const char *str)
 	while ((str[i] == ' ') || ((str[i] >= 9) && (str[i] <= 13)))
 		i++;
 	if ((str[i] == '+') || (str[i] == '-'))
-	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign *= -1;
-		i++;
-	}
-	while ((str[i] >= '0') && (str[i] <= '9'))
+	str += i;
+	i = 0;
+	while ((str[i] >= '0') && (str[i] <= '9') && flag == 0)
 	{
 		res = res * 10 + str[i] - '0';
+		*flag = res > (long)INT_MAX || res < (long)INT_MIN;
 		i++;
 	}
+	*flag = *flag || i == 0;
 	return (res * sign);
 }

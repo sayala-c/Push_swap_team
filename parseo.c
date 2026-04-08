@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/07 20:45:46 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 21:19:56 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,25 +67,27 @@ static char	**get_split(char *arg)
 
 static int	is_valid(char *arg, t_stack **stack)
 {
-	char	**split;
 	int		i;
+	int		flag;
 	long	num;
+	char	**split;
 
+	flag = 0;
 	split = get_split(arg);
 	i = 0;
 	while (split[i])
 	{
 		if (is_valid_int(split[i]))
-			return (free_split(split), 0);
-		num = ft_atol(split[i++]);
+			return (free_split(split), !flag);
+		num = ft_atol(split[i++], &flag);
 		if (num > INT_MAX || num < INT_MIN)
-			return (free_split(split), 0);
+			return (free_split(split), !flag);
 		if (is_duplicate(*stack, (int)num))
-			return (free_split(split), 0);
+			return (free_split(split), !flag);
 		if (!push_back(stack, (int)num))
-			return (free_split(split), 0);
+			return (free_split(split), !flag);
 	}
-	return (free_split(split), 1);
+	return (free_split(split), !flag);
 }
 
 int	parseo(int argc, char **argv, t_flag *opts, t_stack **stack)
