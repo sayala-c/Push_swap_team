@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 21:33:45 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/08 22:09:45 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/08 22:34:32 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ static int	is_valid(char *arg, t_stack **stack)
 		if (is_valid_int(split[i]))
 			return (free_split(split), flag);
 		num = ft_atol(split[i++], &flag);
-		if (num > INT_MAX || num < INT_MIN)
-			return (free_split(split), !flag);
+		if (flag)
+			return (free_split(split), 0);
 		if (is_duplicate(*stack, (int)num))
-			return (free_split(split), !flag);
+			return (free_split(split), 0);
 		if (!push_back(stack, (int)num))
-			return (free_split(split), !flag);
+			return (free_split(split), 0);
 	}
 	return (free_split(split), !flag);
 }
@@ -107,6 +107,8 @@ int	parseo(int argc, char **argv, t_flag *opts, t_stack **stack)
 		else if (is_valid(argv[i], stack) == 0)
 			return (1);
 	}
+	if (stack_size(*stack) == 0)
+		return (1);
 	if (opts->method == METHOD_NONE)
 		opts->method = METHOD_ADAPTIVE;
 	return (0);
