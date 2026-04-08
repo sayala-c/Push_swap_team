@@ -20,7 +20,7 @@ LIBFT =	$(LIBFT_DIR)/libft.a
 
 SRC = push_swap.c parseo.c inits.c index.c rotate_operations.c push_operations.c \
 		swap_operations.c parseo_tools.c push_swap_ejec.c complex_algorithm.c \
-		simple_algorithm.c adaptative_algorithm.c bench.c
+		simple_algorithm.c adaptative_algorithm.c bench.c middle_algorithm.c
 OBJS = $(SRC:.c=.o)
 
 INCLUDES = -I. -I$(LIBFT_DIR) 
