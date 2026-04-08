@@ -117,6 +117,12 @@ void	sort_five(t_stack **a, t_stack **b, t_datacount *data);
 void    move_to_top(t_stack **a, t_stack **b, t_datacount *data, int target_index);
 void    simple_sort(t_stack **a, t_stack **b, t_datacount *data);
 int		min_index_position(t_stack *a, int target_index);
+//middle_algorithm.c
+void	chunks_sort(t_stack **a, t_stack **b, t_datacount *data);
+void	return_to_a(t_stack **a, t_stack **b, t_datacount *data);
+int		max_index_position(t_stack *b);
+void	move_to_top_b(t_stack **a, t_stack **b, t_datacount *data, int max_pos);
+int		calculate_chunk_size(int size);
 //complex_algorithm.c
 int		stack_size(t_stack *a);
 void	radix_sort(t_stack **a, t_stack **b, t_datacount *data);
