@@ -49,9 +49,11 @@ void    chunks_sort(t_stack **a, t_stack **b, t_datacount *data)
 void    return_to_a(t_stack **a, t_stack **b, t_datacount *data)
 {
     int max_pos;
+    int size_b;
 
     while (*b)
     {
+        size_b = stack_size(*b);
         max_pos = max_index_position(*b);
         move_to_top_b(a, b, data, max_pos, size_b);
         execute_operations(PA, a, b, data);
