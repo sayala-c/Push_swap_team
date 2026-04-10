@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:46:38 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/08 20:30:42 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/10 20:27:03 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void	simple_sort(t_stack **a, t_stack **b, t_datacount *data);
 int		min_index_position(t_stack *a, int target_index);
 //middle_algorithm.c
 void	chunks_sort(t_stack **a, t_stack **b, t_datacount *data);
+void	big_chunks_sort(t_stack **a, t_stack **b, t_datacount *data);
 void	return_to_a(t_stack **a, t_stack **b, t_datacount *data);
 int		max_index_position(t_stack *b);
 void	move_to_top_b(t_stack **a, t_stack **b, t_datacount *data, int max_pos);
