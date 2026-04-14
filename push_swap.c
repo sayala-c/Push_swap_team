@@ -6,12 +6,11 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:45:29 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/14 17:16:36 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/14 17:42:07 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {

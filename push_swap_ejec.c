@@ -6,12 +6,11 @@
 /*   By: oduran-m <oduran-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 18:18:44 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/08 21:47:06 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/14 17:42:26 by oduran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	free_stack(t_stack **stack)
 {
