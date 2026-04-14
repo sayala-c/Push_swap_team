@@ -6,14 +6,13 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 21:40:14 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/05 18:03:21 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/14 17:44:11 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rotate(t_stack **stack)/*no hace falta hacer uno para a y otro para b
- xq son identicos y se les puede pasar en el main el stack que corresponde*/
+int	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*last;
