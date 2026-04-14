@@ -25,14 +25,14 @@ The core of the project is to sort a stack with the minimum number of operations
 
 ### Algorithms
 
-* `Simple algorithm`: for a disorder index smaller than 0.20% or up to 5 arguments in the stack
-    * **Hardcoded Logic:** for 2 to 5 numbers.
-    * **Selection Sort:** for small sets, identifying the minimum element and pushing it to Stack B. This is preferred over Bubble Sort as it drastically reduces the number of operations by performing only one "push" per element instead of constant adjacent swaps.
-* `Medium algorithm`: for a disorder index equal or higher than 0.20% and smaller than 0.50%. 
-    * ** Chunks Algorithm**: For medium sets, dividing the stack into value blocks to reduce rotation costs.
-* `Complex algorithm`:  for a disorder index equal or higher than 0.50%.
-    * **Radix Sort:** for large sets, sorting bit by bit based on the node indices.
-* `Adaptive algorithm`: it automatically selects an algorithm based on the number of arguments introduced and the disorder index mentioned before.
+* **Simple algorithm:** for a disorder index smaller than 0.20% or up to 5 arguments in the stack
+    * `Hardcoded Logic`: for 2 to 5 numbers.
+    * `Selection Sort:` for small sets, identifying the minimum element and pushing it to Stack B. This is preferred over Bubble Sort as it drastically reduces the number of operations by performing only one "push" per element instead of constant adjacent swaps.
+* **Medium algorithm:** for a disorder index equal or higher than 0.20% and smaller than 0.50%.
+    * `Chunks Algorithm`: For medium sets, dividing the stack into value blocks to reduce rotation costs.
+* **Complex algorithm:**  for a disorder index equal or higher than 0.50%.
+    * `Radix Sort`: for large sets, sorting bit by bit based on the node indices.
+* **Adaptive algorith:** it automatically selects an algorithm based on the number of arguments introduced and the disorder index mentioned before.
 
 ### Custom Flags
 
