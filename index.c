@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:05:09 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/08 20:28:46 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/14 16:55:59 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	show_operations(t_operations operation, t_datacount *data)
 {
 	if (data->bench_mode == 1)
 		print_op_name(operation);
-	update_data_count(operation, data);		
+	update_data_count(operation, data);
 }
 
 void	update_data_count(t_operations operation, t_datacount *data)

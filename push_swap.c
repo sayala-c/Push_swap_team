@@ -6,7 +6,7 @@
 /*   By: oduran-m <oduran-m@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:45:29 by oduran-m          #+#    #+#             */
-/*   Updated: 2026/04/08 21:55:09 by oduran-m         ###   ########.fr       */
+/*   Updated: 2026/04/14 17:16:36 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	if (argc <= 1)
 		return (0);
-	//printf("valor parse: %d\n", parseo(argc, argv, &opts, &stack_a));
 	if (parseo(argc, argv, &opts, &stack_a))
 	{
 		ft_printf("Error\n");

@@ -6,7 +6,7 @@
 /*   By: sayala-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 17:57:32 by sayala-c          #+#    #+#             */
-/*   Updated: 2026/04/08 20:06:22 by sayala-c         ###   ########.fr       */
+/*   Updated: 2026/04/14 17:15:32 by sayala-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	stack_size(t_stack *a)
 
 void	radix_sort(t_stack **a, t_stack **b, t_datacount *data)
 {
-	t_stack	*head_a;
 	int		i;
 	int		j;
 	int		size;
@@ -37,21 +36,18 @@ void	radix_sort(t_stack **a, t_stack **b, t_datacount *data)
 	max_bits = 0;
 	while (((size - 1) >> max_bits) != 0)
 		max_bits++;
-	i = 0;
-	while (i < max_bits)
+	i = -1;
+	while (++i < max_bits)
 	{
-		j = 0;
-		while (j < size)
+		j = -1;
+		while (++j < size)
 		{
-			head_a = *a;
-			if (((head_a->index >> i) & 1) == 1)
+			if ((((*a)->index >> i) & 1) == 1)
 				execute_operations(RA, a, b, data);
 			else
 				execute_operations(PB, a, b, data);
-			j++;
 		}
 		while (stack_size(*b) != 0)
 			execute_operations(PA, a, b, data);
-		i++;
 	}
 }
