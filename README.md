@@ -24,7 +24,7 @@ The core of the project is to sort a stack with the minimum number of operations
 ### Custom Flags
 
 We have implemented system of flags run and test different strategies:
-* `--bench`: displays The disorder index (% with two decimal places), the name of the strategy used and its theoretical complexity class, the total number of operations used and the number of operations of each type (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr) used during the sorting process.
+* `--bench`: displays the disorder index (% with two decimal places), the name of the strategy used and its theoretical complexity class, the total number of operations used and the number of operations of each type (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr) used during the sorting process.
 * `--adaptive`: Automatically detects the stack size and chooses the best algorithm (Small, Selection, Chunks, or Radix).
 * `--simple`: forces the use of the **Hardcoded Logic** and **Selection Sort** algorihm.
 * `--medium`: forces the use of the **Chunks-based** algorithm.
