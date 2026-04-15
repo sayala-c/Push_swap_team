@@ -78,3 +78,10 @@ Use `clean` to delete all object files, `fclean` to remove executable and all ob
 ```shell
 make clean / make fclean / make re
 ```
+
+## Resourses
+* 42 cursus guide
+* YouTube tutorials
+
+### AI Usage
+For this project AI has been used as a guide to understand concepts and logic and find errors. No code generation was used.
