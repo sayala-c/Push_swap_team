@@ -46,4 +46,35 @@ We have implemented system of flags run and test different strategies:
 * `--medium`: forces the use of the **Chunks-based** algorithm.
 * `--complex`: forces the use of the **Radix Sort** algorithm.
 
-### Contributions
+### Instructions
+
+**1. Compiling the program**
+
+To compile the program, run:
+
+```shell
+$ cd path/to/push_swap && make
+```
+
+To compile the checker, run:
+
+```shell
+$ cd path/to/push_swap && make bonus
+```
+
+**2. How to run the program**
+
+Run the executable together with the set of numbers separated by a space:
+```shell
+./push_swap 5 7 10 4 6 8 9 2 1 3
+```
+
+To run the checker on push_swap, use the pipe:
+```shell
+ARG="5 7 10 4 6 8 9 2 1 3"; ./push_swap $ARG | ./checker $ARG
+```
+
+Use `clean` to delete all object files, `fclean` to remove executable and all object files, and `re` to recompile the program:
+```shell
+make clean / make fclean / make re
+```
